@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+:root {
+  --ff: 'Rubik', sans-serif;
+  --fs: 18px;
+
+  /* Colors */
+  --color-cell: hsl(205, 33%, 90%);
+  --color-obstacles-point: hsl(219, 14%, 63%);
+  --color-path-point: hsl(43, 74%, 49%);
+  --color-start-point: hsl(190, 91%, 47%);
+  --color-finish-point: hsl(190, 91%, 47%);
+  --color-bad-point: hsl(0, 3%, 87%);
+  --color-selected-point: hsl(43, 74%, 49%);
+
+  /* main */
+  /* number of columns */
+  --columnNumber: 0;
+
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--fs);
+}
+
+body {
+  font-family: var(--ff);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.maze {
+  display: grid;
+  grid-template-columns: repeat(var(--columnNumber), auto);
+  justify-content: center;
+  gap: 2px;
+  margin: 3rem;
+}
+
+.maze__cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border: 2px solid var(--color-cell);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.cell-obstacle {
+  background: var(--color-obstacles-point);
+}
+
+.cell-path {
+  background: var(--color-path-point);
+}
+
+.cell-bed {
+  background: var(--color-bad-point);
+}
+
+.cell-start {
+  background: var(--color-start-point);
+}
+
+.cell-finish {
+  background: var(--color-finish-point);
+}
+
+.cell-selected {
+  background: var(--color-selected-point);
+}
+
+.sphere {
+  text-align: center;
+  line-height: 35px;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: inset -1px -1px 5px hsl(0, 1%, 70%), 1px 1px 5px hsl(0, 1%, 74%), inset 0px 0px 5px hsl(0, 1%, 65%);
+}
+
+.sphere::after {
+  background-color: rgba(255, 255, 255, 0.3);
+  content: '';
+  height: 45%;
+  width: 12%;
+  position: absolute;
+  top: 4%;
+  left: 15%;
+  border-radius: 50%;
+  transform: rotate(40deg);
+}
+
+.controls {
+  display: flex;
+}
+
+.btn {
+  background-color: transparent;
+  border-radius: 0.5rem;
+  border: 1px solid hsl(0, 1%, 70%);
+  padding: 0.3rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  margin-right: 0.4rem;
+}
+
+.btn:hover {
+  background-color: hsl(0, 1%, 70%);
+  ;
+}
+
+.info {
+  font-weight: 700;
+  color: cadetblue;
+  letter-spacing: 0.2rem;
+}
